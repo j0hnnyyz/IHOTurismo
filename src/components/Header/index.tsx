@@ -1,9 +1,12 @@
 import { AppBar, Container, Box, Button, Typography, IconButton } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { Search as SearchIcon } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
 import LogoImg from "../../imgs/LogoIHO.png";
 
 const Header = () => {
+  const theme = useTheme();
+
   return (
     <AppBar
       position="static"
@@ -55,9 +58,11 @@ const Header = () => {
                   sx={{
                     color: "white",
                     cursor: "pointer",
-                    fontWeight: 500,
+                    padding: "0.5rem 1rem",
+                    borderRadius: 2,
+                    transition: "all 0.2s ease-in-out",
                     "&:hover": {
-                      opacity: 0.8,
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
                     },
                   }}
                 >
@@ -69,24 +74,18 @@ const Header = () => {
 
           <Grid2 xs={3} display="flex" justifyContent="flex-end">
             <Button
-              variant="outlined"
+              variant="contained"
               sx={{
-                backgroundColor: "white",
-                color: "#692176",
-                borderColor: "#692176",
+                background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+                color: "white",
                 borderRadius: 3,
                 px: 3,
                 py: 1.5,
                 textTransform: "none",
-                borderWidth: 2,
-                "&:hover": {
-                  backgroundColor: "white",
-                  borderColor: "#692176",
-                  opacity: 0.8,
-                },
+                fontWeight: 600,
               }}
             >
-              LOGIN
+              Login
             </Button>
           </Grid2>
         </Grid2>

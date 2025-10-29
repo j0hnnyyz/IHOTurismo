@@ -47,7 +47,7 @@ const theme = (mode: any) => {
         secondary: {
           main: "#C91448",
           light: "#E04168",
-          dark: "#A0113A",
+          dark: "#630A23",
           contrastText: "#fff",
         },
         background: {

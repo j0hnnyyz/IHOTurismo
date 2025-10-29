@@ -1,6 +1,7 @@
 import { Box, CssBaseline } from "@mui/material";
 import ThemesProvider from "./providers/ThemeProvider";
 import Header from "./components/Header";
+import SearchPackages from "./components/SearchPackages";
 import backgroundImg from "./imgs/IHObg.png";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         }}
       >
         <Header />
+        <SearchPackages />
       </Box>
     </ThemesProvider>
   );
