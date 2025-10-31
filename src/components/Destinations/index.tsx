@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Typography, Container, IconButton } from "@mui/material";
+import { Box, Button, Typography, Container, IconButton, Grid } from "@mui/material";
 import {
   ArrowBack,
   ArrowForward,
@@ -37,7 +37,7 @@ const Destinations = () => {
       dias: "10",
       cancelamento: "Cancelamento grátis",
       local: "Cambodia",
-      imagem: "https://images.unsplash.com/photo-1539193013089-e72ff65e9db2?w=400",
+      imagem: "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&auto=format&fit=crop&q=80",
     },
     {
       titulo: "La Concha",
@@ -69,66 +69,72 @@ const Destinations = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 3, mb: 6 }}>
-          <Box
-            sx={{
-              backgroundColor: "white",
-              borderRadius: 3,
-              px: 4,
-              py: 3,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 2,
-              minWidth: "280px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-            }}
-          >
-            <TravelExplore sx={{ fontSize: 48, color: theme.palette.primary.main }} />
-            <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
-              Procure seu destino
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              backgroundColor: "white",
-              borderRadius: 3,
-              px: 4,
-              py: 3,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 2,
-              minWidth: "280px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-            }}
-          >
-            <ConfirmationNumber sx={{ fontSize: 48, color: theme.palette.primary.main }} />
-            <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
-              Compre seu pacote
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              backgroundColor: "white",
-              borderRadius: 3,
-              px: 4,
-              py: 3,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 2,
-              minWidth: "280px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-            }}
-          >
-            <Map sx={{ fontSize: 48, color: theme.palette.primary.main }} />
-            <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
-              Viaje ao redor do mundo
-            </Typography>
-          </Box>
+        <Box sx={{ mb: 6 }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={12} md={4}>
+              <Box
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: 3,
+                  px: 4,
+                  py: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 2,
+                  height: "100%",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                }}
+              >
+                <TravelExplore sx={{ fontSize: 48, color: theme.palette.primary.main }} />
+                <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
+                  Procure seu destino
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: 3,
+                  px: 4,
+                  py: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 2,
+                  height: "100%",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                }}
+              >
+                <ConfirmationNumber sx={{ fontSize: 48, color: theme.palette.primary.main }} />
+                <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
+                  Compre seu pacote
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: 3,
+                  px: 4,
+                  py: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 2,
+                  height: "100%",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                }}
+              >
+                <Map sx={{ fontSize: 48, color: theme.palette.primary.main }} />
+                <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
+                  Viaje ao redor do mundo
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4 }}>

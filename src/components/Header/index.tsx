@@ -2,10 +2,12 @@ import { AppBar, Container, Box, Button, Typography, IconButton } from "@mui/mat
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { Search as SearchIcon } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 import LogoImg from "../../imgs/LogoIHO.png";
 
 const Header = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <AppBar
@@ -84,6 +86,7 @@ const Header = () => {
                 textTransform: "none",
                 fontWeight: 600,
               }}
+              onClick={() => navigate("/login")}
             >
               Login
             </Button>
