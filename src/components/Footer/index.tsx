@@ -1,5 +1,5 @@
-import { Box, Container, Typography, IconButton, Grid } from "@mui/material";
-import { Facebook, Instagram, Twitter, LinkedIn } from "@mui/icons-material";
+import { Box, Container, Typography, IconButton, Grid, Link } from "@mui/material";
+import { Instagram, LinkedIn } from "@mui/icons-material";
 import LogoImg from "../../imgs/LogoIHO.png";
 
 const Footer = () => {
@@ -42,50 +42,42 @@ const Footer = () => {
                 Redes Sociais
               </Typography>
               <Box sx={{ display: "flex", gap: 1, justifyContent: { xs: "center", md: "flex-end" } }}>
-                <IconButton
-                  sx={(theme) => ({
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    color: theme.palette.common.white,
-                    "&:hover": {
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    },
-                  })}
+                <Link
+                  href="https://www.instagram.com/ihoturismo?igsh=MTFucGs0bXZ3czVkeA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ textDecoration: "none" }}
                 >
-                  <Facebook />
-                </IconButton>
-                <IconButton
-                  sx={(theme) => ({
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    color: theme.palette.common.white,
-                    "&:hover": {
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    },
-                  })}
+                  <IconButton
+                    sx={(theme) => ({
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      color: theme.palette.common.white,
+                      "&:hover": {
+                        backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      },
+                    })}
+                  >
+                    <Instagram />
+                  </IconButton>
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/company/ihoturismo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ textDecoration: "none" }}
                 >
-                  <Instagram />
-                </IconButton>
-                <IconButton
-                  sx={(theme) => ({
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    color: theme.palette.common.white,
-                    "&:hover": {
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    },
-                  })}
-                >
-                  <Twitter />
-                </IconButton>
-                <IconButton
-                  sx={(theme) => ({
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    color: theme.palette.common.white,
-                    "&:hover": {
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    },
-                  })}
-                >
-                  <LinkedIn />
-                </IconButton>
+                  <IconButton
+                    sx={(theme) => ({
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      color: theme.palette.common.white,
+                      "&:hover": {
+                        backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      },
+                    })}
+                  >
+                    <LinkedIn />
+                  </IconButton>
+                </Link>
               </Box>
             </Box>
           </Grid>

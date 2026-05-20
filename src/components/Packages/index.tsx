@@ -1,18 +1,17 @@
-import { Box, Button, Typography, Container, IconButton, Grid } from "@mui/material";
+import { Box, Button, Typography, Container, Grid, IconButton } from "@mui/material";
 import {
+  ArrowBack,
   Favorite,
   AccessTime,
   CheckCircle,
-  ArrowRight,
-  TravelExplore,
-  ConfirmationNumber,
-  Map,
+  LocalFireDepartment,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { getNavigationState } from "../../utils/navigation";
+import backgroundImg from "../../imgs/IHObg.png";
 
-const Destinations = () => {
+const Packages = () => {
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -47,87 +46,76 @@ const Destinations = () => {
       local: "Espanha",
       imagem: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400",
     },
+    {
+      titulo: "Santorini",
+      preco: "12.500,00",
+      avaliacao: "4.9",
+      avaliacoes: "15k",
+      dias: "7",
+      cancelamento: "Cancelamento grátis",
+      local: "Grécia",
+      imagem: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=400",
+    },
+    {
+      titulo: "Machu Picchu",
+      preco: "8.900,00",
+      avaliacao: "4.7",
+      avaliacoes: "9k",
+      dias: "12",
+      cancelamento: "Cancelamento grátis",
+      local: "Peru",
+      imagem: "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=400",
+    },
+    {
+      titulo: "Bali Paradise",
+      preco: "11.200,00",
+      avaliacao: "4.9",
+      avaliacoes: "18k",
+      dias: "8",
+      cancelamento: "Cancelamento grátis",
+      local: "Indonésia",
+      imagem: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=400",
+    },
   ];
 
   return (
     <Box
       sx={{
-        background: `linear-gradient(to bottom, ${theme.palette.secondary.main}, ${theme.palette.secondary.dark})`,
-        borderRadius: 0,
+        minHeight: "100vh",
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        position: "relative",
         py: 8,
         px: 4,
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: `linear-gradient(to bottom, ${theme.palette.secondary.main}, ${theme.palette.secondary.dark})`,
+          opacity: 0.85,
+          zIndex: 0,
+        },
       }}
     >
-      <Container maxWidth="lg">
-        <Box sx={{ mb: 6 }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={12} md={4}>
-              <Box
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: 3,
-                  px: 4,
-                  py: 3,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 2,
-                  height: "100%",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                }}
-              >
-                <TravelExplore sx={{ fontSize: 48, color: theme.palette.primary.main }} />
-                <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
-                  Procure seu destino
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <Box
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: 3,
-                  px: 4,
-                  py: 3,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 2,
-                  height: "100%",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                }}
-              >
-                <ConfirmationNumber sx={{ fontSize: 48, color: theme.palette.primary.main }} />
-                <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
-                  Compre seu pacote
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <Box
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: 3,
-                  px: 4,
-                  py: 3,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 2,
-                  height: "100%",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                }}
-              >
-                <Map sx={{ fontSize: 48, color: theme.palette.primary.main }} />
-                <Typography sx={{ color: "black", fontWeight: 600, textAlign: "center" }}>
-                  Viaje ao redor do mundo
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Box sx={{ mb: 4 }}>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Box sx={{ mb: 4, display: "flex", alignItems: "center", gap: 2 }}>
+          <IconButton
+            onClick={() => navigate("/", { state: getNavigationState("back") })}
+            sx={{
+              backgroundColor: "white",
+              color: "black",
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.9)",
+              },
+            }}
+          >
+            <ArrowBack />
+          </IconButton>
           <Typography
             variant="h4"
             sx={{
@@ -135,11 +123,11 @@ const Destinations = () => {
               fontWeight: 700,
             }}
           >
-            Destinos mais vistos
+            Nossos Pacotes
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {pacotes.map((pacote, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Box
@@ -149,6 +137,8 @@ const Destinations = () => {
                   overflow: "hidden",
                   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
                   height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
                 <Box
@@ -174,8 +164,30 @@ const Destinations = () => {
                   >
                     <Favorite />
                   </IconButton>
+                  {index === 0 && (
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: 12,
+                        left: 12,
+                        backgroundColor: theme.palette.secondary.main,
+                        color: "white",
+                        px: 1.5,
+                        py: 0.5,
+                        borderRadius: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
+                      }}
+                    >
+                      <LocalFireDepartment sx={{ fontSize: 18 }} />
+                      <Typography variant="caption" sx={{ fontWeight: 600 }}>
+                        Popular
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
-                <Box sx={{ p: 2.5 }}>
+                <Box sx={{ p: 2.5, flexGrow: 1, display: "flex", flexDirection: "column" }}>
                   <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5, color: "black" }}>
                     {pacote.titulo}
                   </Typography>
@@ -199,45 +211,38 @@ const Destinations = () => {
                     <AccessTime sx={{ color: "#666666", fontSize: 18 }} />
                     <Typography sx={{ color: "#666666" }}>{pacote.dias} dias</Typography>
                   </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
                     <CheckCircle sx={{ color: "#4CAF50", fontSize: 18 }} />
                     <Typography sx={{ color: "#666666" }}>{pacote.cancelamento}</Typography>
                   </Box>
-                  <Typography sx={{ mt: 1, color: "#333333", fontWeight: 500 }}>
+                  <Typography sx={{ mt: "auto", color: "#333333", fontWeight: 500 }}>
                     {pacote.local}
                   </Typography>
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    sx={{
+                      mt: 2,
+                      background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.secondary.dark})`,
+                      color: "white",
+                      borderRadius: 2,
+                      py: 1.5,
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Ver detalhes
+                  </Button>
                 </Box>
               </Box>
             </Grid>
           ))}
         </Grid>
-
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 6 }}>
-          <Button
-            variant="contained"
-            onClick={() => navigate("/packages", { state: getNavigationState("forward") })}
-            sx={{
-              background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.secondary.dark})`,
-              color: "white",
-              borderRadius: 3,
-              px: 4,
-              py: 1.5,
-              textTransform: "none",
-              fontSize: "1.1rem",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            Ver pacotes
-            <ArrowRight />
-          </Button>
-        </Box>
       </Container>
     </Box>
   );
 };
 
-export default Destinations;
+export default Packages;
 
